@@ -39,6 +39,10 @@ RUN mkdir -p /opt/n8n-custom-nodes && \
 # ──────────────────────────────────────────────────────────────
 ENTRYPOINT []
 
+
+
 COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 CMD ["/entrypoint.sh"]
+
+ENV CHROMIUM_FLAGS="--no-sandbox --disable-setuid-sandbox"
