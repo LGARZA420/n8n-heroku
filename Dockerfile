@@ -19,7 +19,9 @@ RUN apk add --no-cache \
       ttf-freefont \
       udev \
       ttf-liberation \
-      font-noto-emoji
+      font-noto-emoji \
+ && chown root:root /usr/lib/chromium/chrome-sandbox \
+ && chmod 4755      /usr/lib/chromium/chrome-sandbox
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
