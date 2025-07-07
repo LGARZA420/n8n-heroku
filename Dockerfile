@@ -35,12 +35,8 @@ RUN mkdir -p /opt/n8n-custom-nodes && \
 # ──────────────────────────────────────────────────────────────
 # 4. Copy **your** entrypoint and make it executable
 # ──────────────────────────────────────────────────────────────
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh && \
-    chown node:node /entrypoint.sh
+ENTRYPOINT []
 
-# ──────────────────────────────────────────────────────────────
-# 5. Drop back to non-root and set the entrypoint
-# ──────────────────────────────────────────────────────────────
-USER node
-ENTRYPOINT ["/entrypoint.sh"]
+COPY ./entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]
